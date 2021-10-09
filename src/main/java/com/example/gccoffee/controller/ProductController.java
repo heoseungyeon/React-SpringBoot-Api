@@ -1,5 +1,6 @@
 package com.example.gccoffee.controller;
 
+import com.example.gccoffee.controller.CreateProductRequest;
 import com.example.gccoffee.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,14 +28,14 @@ public class ProductController {
         return "new-product";
     }
 
-//    @PostMapping("/products")
-//    public String newProduct(CreateProductRequest createProductRequest) {
-//        productService.createProduct(
-//                createProductRequest.productName(),
-//                createProductRequest.category(),
-//                createProductRequest.price(),
-//                createProductRequest.description());
-//        return "redirect:/products";
-//    }
+    @PostMapping("/products")
+    public String newProduct(CreateProductRequest createProductRequest) {
+        productService.createProduct(
+                createProductRequest.productName(),
+                createProductRequest.category(),
+                createProductRequest.price(),
+                createProductRequest.description());
+        return "redirect:/products";
+    }
 
 }
